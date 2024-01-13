@@ -29,7 +29,7 @@ class Solution{
 					check = true;
 				}
 				  
-			}
+			} 
 			if(!check) {
 				for(int j=n-1; j>0; j--) {
 					cashe[j] = cashe[j-1];

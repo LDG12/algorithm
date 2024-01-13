@@ -1,4 +1,4 @@
-package _3_twopointer;
+package inflearn._3_twopointer;
 
 public class inflearn3_6 {
 

@@ -28,7 +28,7 @@ class Solution{
 					cashe[j] = now;
 					check = true;
 				}
-				  
+				 
 			} 
 			if(!check) {
 				for(int j=n-1; j>0; j--) {

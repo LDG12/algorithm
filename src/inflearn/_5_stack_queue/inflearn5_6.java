@@ -13,7 +13,7 @@ import java.util.TreeSet;
 public class inflearn5_6 {
 	static int n,m,k;
     static StringTokenizer st;
-    static StringBuilder sb;
+    static StringBuilder sb; 
     public static void main(String[] args)throws Exception{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));

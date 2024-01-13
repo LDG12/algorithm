@@ -1,3 +1,4 @@
+package baekjoon;
 
 import java.util.*;
 import java.util.stream.Stream;

@@ -1,8 +1,9 @@
+package inflearn._4_hashmap_treeset;
+
 import java.util.*;
-import java.util.stream.Stream;
 import java.io.*;
  
-class Solution{
+class inflearn4_4{
     static int n,m,k;
     static StringTokenizer st;
     static StringBuilder sb;

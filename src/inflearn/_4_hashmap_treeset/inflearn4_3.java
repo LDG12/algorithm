@@ -5,7 +5,7 @@ import java.util.*;
 import java.util.stream.Stream;
 import java.io.*;
  
-class Solution{
+class inflearn4_3{
     static int n,m,k; 
     static StringTokenizer st;
     static StringBuilder sb;

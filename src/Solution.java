@@ -42,6 +42,7 @@ class Solution{
 			sb.append(cashe[i]+" ");
 		}
 		System.out.println(sb.toString());
+		System.out.println();
 		br.close();
 		bw.close();
 	}

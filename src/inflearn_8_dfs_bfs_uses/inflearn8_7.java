@@ -25,7 +25,7 @@ public class inflearn8_7 {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         arr = new int[7][7];
-        for(int i=0; i<7; i++) {
+        for(int i=0; i<7; i++) { 
         	st = new StringTokenizer(br.readLine(), " ");
         	for(int j=0; j<7; j++) {
         		arr[i][j] = Integer.parseInt(st.nextToken());

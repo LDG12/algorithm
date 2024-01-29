@@ -19,7 +19,7 @@ public class baekjoon2615 {
             {-1, 0}, // 상
             {-1, 1} // 우상
     };
-	static StringTokenizer st; 	
+	static StringTokenizer st; 	 
 	static int[][] result;
 	public static void main(String[] args) throws Exception {
 		//여기에 코드를 작성하세요.

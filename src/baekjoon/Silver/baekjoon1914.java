@@ -30,13 +30,14 @@ public class baekjoon1914 {
         }
         System.out.println(sb.toString());
         br.close();
-        bw.close();
-    }
+	        bw.close();
+	    }
     static void dfs(int n, int start, int end) {
     	if(n==0) {
     		return;
     	}
     	else {
+    		// 
     		dfs(n-1, start, 6-start-end);
     		sb.append(start).append(" ").append(end).append("\n");
     		dfs(n-1, 6-start-end, end);

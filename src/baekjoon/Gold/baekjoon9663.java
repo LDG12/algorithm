@@ -23,8 +23,6 @@ public class baekjoon9663 {
         max=0;
         dfs(0);
         System.out.println(max);
-        br.close();
-        bw.close();
     }
     static void dfs(int depth) {
     	if(depth>=n) {
@@ -32,7 +30,7 @@ public class baekjoon9663 {
     		return;
     	}
     	for(int i=0; i<n; i++) {
-    		arr[depth] = i+1;
+    		arr[depth]=i+1;
     		if(check(depth)) {
     			dfs(depth+1);
     		}
@@ -40,7 +38,9 @@ public class baekjoon9663 {
     }
     static boolean check(int col) {
     	for(int i=0; i<col; i++) {
-    		if(arr[col]==arr[i])return false;
+    		if(arr[col]==arr[i]) {
+    			return false;
+    		}
     		if(col-i == Math.abs(arr[col]-arr[i]))return false;
     	}
     	return true;

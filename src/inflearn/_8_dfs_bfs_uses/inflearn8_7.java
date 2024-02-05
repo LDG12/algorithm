@@ -1,4 +1,4 @@
-package inflearn_8_dfs_bfs_uses;
+package inflearn._8_dfs_bfs_uses;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;

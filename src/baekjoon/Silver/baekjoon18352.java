@@ -11,6 +11,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
+
 public class baekjoon18352 {
 	static int n,m,k;
     static StringTokenizer st;
@@ -41,8 +42,8 @@ public class baekjoon18352 {
         }
         visited = new int[n+1];
         Arrays.fill(visited, -1);
-        bfs(x, 0);
-        ArrayList<Integer>list = new ArrayList<>(); 
+        bfs(x);
+        ArrayList<Integer>list = new ArrayList<>();
         for(int i=1; i<=n; i++) {
         	if(visited[i]==k) {
         		list.add(i);
@@ -60,15 +61,15 @@ public class baekjoon18352 {
         br.close();
         bw.close();
     }
-    static void bfs(int startX, int cnt) {
-    	Queue<Integer> q = new LinkedList<>();
-    	q.offer(startX);
-    	visited[startX]= 0;
+    static void bfs(int start) {
+    	Queue<Integer>q = new LinkedList<>();
+    	q.offer(start);
+    	visited[start]=0;
     	while(!q.isEmpty()) {
     		int now = q.poll();
     		for(int i : list[now]) {
-    			if(visited[i]==-1) {
-    				visited[i]= visited[now]+1;
+    			if(visited[i]== -1) {
+    				visited[i] = visited[now]+1;
     				q.offer(i);
     			}
     		}

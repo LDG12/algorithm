@@ -9,7 +9,6 @@ import java.util.Arrays;
 import java.util.PriorityQueue;
 import java.util.StringTokenizer;
 
-import baekjoon.Gold.baekjoon13549.Node;
 
 public class baekjoon2665 {
 	static class Node implements Comparable<Node>{

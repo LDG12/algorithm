@@ -5,7 +5,24 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
+/**
+ * @author 임동길
+ * @date 2024-02-21
+ * @link https://swexpertacademy.com/main/talk/solvingClub/problemView.do?contestProbId=AWBJKA6qr2oDFAWr&solveclubId=AY0LFFoqrIIDFAXz&problemBoxTitle=0219%EC%A3%BC&problemBoxCnt=1&probBoxId=AY3JcG16dgMDFAXh
+ * @keyword_solution  
+ * Union Find
+ * find에 나오는 결과값만을 이어붙이기
+ * @input 
+ * 1<=N<=1,000,000 // 1<=M<=1,000,000
+ * @output   
+ * 띄어쓰기없이 이어붙이기. ( 속해있다면 1, 속해있지 않다면 0 )
+ * @time_complex  
+ * O(NlogN)
+ * @perf
+ * 102,856kb / 507ms 
+ */
 public class swea3289 {
+	
 	static int[] dx = { 0, 1, 0, -1 };
 	static int[] dy = { 1, 0, -1, 0 };
 	static int[][] arr;

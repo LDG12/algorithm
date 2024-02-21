@@ -7,6 +7,22 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.StringTokenizer;
 
+/**
+ * @author 임동길
+ * @date 2024-02-20
+ * @link https://www.acmicpc.net/problem/15686
+ * @keyword_solution 
+ * 조합 및 맨해튼 거리
+ * 각 집으로부터 가장 가까운 치킨집까지의 거리를 구하고, 집의 수량만큼 그 거리를 더한 값이 최소인 것을 구하는 문제
+ * @input	
+ * 2<=N<=50  , 1<=M<13
+ * @output
+ * @time_complex 
+ * @perf 216ms 15400KB 
+ */
+
+
+
 public class baekjoon15686 {
 	static int[] dx= {1,0,0,-1};
 	static int[] dy= {0,1,-1,0};

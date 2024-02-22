@@ -7,7 +7,6 @@ import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.PriorityQueue;
-import java.util.Queue;
 import java.util.StringTokenizer;
 
 
@@ -27,7 +26,7 @@ public class baekjoon1261 {
 			return Integer.compare(this.cost, o.cost);
 		}
 	}
-	static int n,m,k;
+	static int n,m,k,d;
     static StringTokenizer st;
     static int[][] arr;
     static int[] dx = {-1,0,1,0};

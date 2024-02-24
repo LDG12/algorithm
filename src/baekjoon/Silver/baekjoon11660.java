@@ -6,7 +6,6 @@ import java.util.LinkedList;
 import java.util.Stack;
 import java.util.StringTokenizer;
 
-import sun.awt.image.ImageWatched.Link;
 
 public class baekjoon11660 {
 	static int[] dx= {1,0,-1,0,1,-1,-1,1};

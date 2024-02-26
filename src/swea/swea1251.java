@@ -95,9 +95,7 @@ public class swea1251 {
                     int distanceY = Math.abs(node.y - next.y);
                     double cost = (e*Math.pow(distanceY,2))+(e*(Math.pow(distanceX,2)));
                     Edge atob = new Edge(node.index, next.index, cost);
-                    Edge btoa = new Edge(next.index, node.index, cost);
                     edges.add(atob);
-                    edges.add(btoa);
                 }
             }
             Collections.sort(edges);

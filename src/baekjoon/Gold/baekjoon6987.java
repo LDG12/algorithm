@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.StringTokenizer;
 
-import com.sun.java.swing.plaf.windows.resources.windows;
 
 public class baekjoon6987 {
 	static int[] dx= {1,0,-1,0,1,-1,-1,1};

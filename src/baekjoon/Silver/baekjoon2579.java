@@ -11,35 +11,34 @@ public class baekjoon2579 {
     static StringBuilder sb; 
     public static void main(String[] args)throws Exception{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        n= Integer.parseInt(br.readLine());
+        n = Integer.parseInt(br.readLine());
         int[] arr = new int[n+1];
-        for(int i=1; i<=n; i++) {
-        	arr[i]= Integer.parseInt(br.readLine()); 
+        for(int i=1; i<=n; i++){
+            arr[i] = Integer.parseInt(br.readLine());
         }
-        int[] fp = new int[n+1];
-        int[] hp = new int[n+1];
-        if(n==1) {
-        	fp[1] = arr[1];
-        	hp[1] = 0;
+        int[] fx = new int[n+1];
+        int[] gx = new int[n+1];
+        if(n==1){
+            fx[1] = arr[1];
+            gx[1] = 0;
         }
-        else if(n==2) {
-        	fp[1] = arr[1];
-        	hp[1] = 0;
-        	fp[2] = arr[1]+arr[2];
-        	hp[2] = arr[2];
+        if(n==2){
+            fx[1] = arr[1];
+            gx[1] = 0;
+            fx[2] = arr[1]+arr[2];
+            gx[2] = arr[2];
         }
-        else {
-        	fp[0] = hp[0] = 0;
-        	fp[1] = arr[1];
-        	hp[1] = 0;
-        	fp[2] = arr[1]+arr[2];
-        	hp[2] = arr[2];
-        	for(int i=3; i<= n; i++) {
-        		fp[i]= hp[i-1]+arr[i];
-        		hp[i]= Math.max(hp[i-2]+arr[i], fp[i-2]+arr[i]); 
-        	}
+        if(n>=3){
+            fx[1] = arr[1];
+            gx[1] = 0;
+            fx[2] = arr[1]+arr[2];
+            gx[2] = arr[2];
+            for(int i=3; i<=n; i++){
+                fx[i] = gx[i-1]+arr[i];
+                gx[i] = Math.max(fx[i-2]+arr[i], gx[i-2]+arr[i]);
+            }
         }
-        System.out.println(Math.max(fp[n], hp[n]));
+        System.out.println(Math.max(gx[n],fx[n]));
         br.close();
     }
 }

@@ -7,42 +7,25 @@ import java.util.Arrays;
 import java.util.StringTokenizer;
 
 public class baekjoon9095 {
-	static int[] dx= {1,0,-1,0,1,-1,-1,1};
-	static int[] dy= {0,1,0,-1,1,-1,1,-1};
-	static int[] arr;
-	static int direction;
 	static int n,m,k;
 	static StringTokenizer st;
-	static boolean[] visited;
-	static int[][] result;
-	static int[] parent;
-	static int[] evenParent;
-	static ArrayList<Integer>trueMan; 
-	static ArrayList<Integer>[] party;
 	static int max;
 	static StringBuilder sb;
 	public static void main(String[] args) throws Exception {
 		//여기에 코드를 작성하세요.
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		n = Integer.parseInt(br.readLine());
-		st = new StringTokenizer(br.readLine(), " ");
-		int[] arr = new int[n+1];
-		for(int i=1; i<=n; i++) {
-			arr[i] = Integer.parseInt(st.nextToken()); 
-		}
-		int[] dp = new int[n+1];
-		Arrays.fill(dp, 1);
-		for(int i=1; i<=n; i++) {
-			for(int j=i; j>=1; j--) {
-				if(arr[i] > arr[j]) {
-					dp[i] = Math.max(dp[j]+1, dp[i]); 
-				}
+		int T = Integer.parseInt(br.readLine());
+		for(int tc=0;tc<T;tc++){
+			n = Integer.parseInt(br.readLine());
+			int[] dp = new int[11];
+			dp[0] = 0;
+			dp[1] = 1;
+			dp[2] = 2;
+			dp[3] = 4;
+			for(int i=4; i<=n; i++){
+				dp[i] = dp[i-1]+dp[i-2]+dp[i-3];
 			}
+			System.out.println(dp[n]);
 		}
-		int max =0 ;
-		for(int i=0; i<dp.length; i++) {
-			max = Math.max(max, dp[i]);
-		}
-		System.out.println(max);
 	}
 }

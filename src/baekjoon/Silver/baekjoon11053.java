@@ -18,28 +18,38 @@ public class baekjoon11053 {
     public static void main(String[] args)throws Exception{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         n = Integer.parseInt(br.readLine());
-        int[] arr = new int[n];
+        int[] arr= new int[n];
         st = new StringTokenizer(br.readLine(), " ");
         for(int i=0; i<n; i++){
             arr[i] = Integer.parseInt(st.nextToken());
         }
         int[] dp = new int[n];
-        Arrays.fill(dp, 1);
-        for(int i=0; i<n; i++){
-            for(int j=i-1; j>=0; j--){
-                if(arr[i]>arr[j]){
-                    dp[i] = Math.max(dp[j]+1, dp[i]);
-                }
+        dp[0] = arr[0];
+        int len = 1;
+        for(int i=1; i<n; i++){
+            int now = arr[i];
+            if(dp[len-1] < now){
+                dp[len++] = now;
+            }
+            else{
+                int index = binarySearch(now, len, dp);
+                dp[index] = now;
             }
         }
-        int max=0;
-        for(int i=0; i<n; i++){
-            if(dp[i]>max){
-                max = dp[i];
+        System.out.println(len);
+    }
+    static int binarySearch(int num, int len, int[] dp){
+        int start = 0;
+        int end = len-1;
+        while(start<=end){
+            int mid = (start+end)/2;
+            if(dp[mid] < num){
+                start = mid+1;
+            }
+            else{
+                end = mid-1;
             }
         }
-        System.out.println(max);
-        br.close();
-       
+        return start;
     }
 }

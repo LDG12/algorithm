@@ -9,18 +9,17 @@ public class baekjoon3055 {
     static StringBuilder sb;
     static int n,m,k;
     static char[][] map;
-    static boolean[][]waterVisited;
     static boolean[][] visited;
     static Queue<Point> q;
-    static Queue<Point> waterQ;
     static int[] dx = {1,0,-1,0};
     static int[] dy = {0,1,0,-1};
     static class Point{
-        int x,y, time;
-        Point(int x, int y, int time){
+        int x,y, time, flag;
+        Point(int x, int y, int time, int flag){
             this.x = x;
             this.y = y;
             this.time = time;
+            this.flag = flag;
         }
 
         @Override
@@ -39,64 +38,56 @@ public class baekjoon3055 {
         m = Integer.parseInt(st.nextToken());
         map = new char[n][m];
         q = new ArrayDeque<>();
-        waterQ = new ArrayDeque<>();
-        waterVisited = new boolean[n][m];
         visited = new boolean[n][m];
+        int startX = 0;
+        int startY = 0;
         for(int i=0; i<n; i++){
             String tmp = br.readLine();
             for(int j=0; j<m; j++){
                 map[i][j] = tmp.charAt(j);
                 if(map[i][j] == 'S'){
-                    q.offer(new Point(i, j, 0));
-                    visited[i][j] = true;
+                    startX = i;
+                    startY = j;
                 }
                 if(map[i][j] == '*'){
-                    waterVisited[i][j] = true;
-                    waterQ.offer(new Point(i,j, 0));
+                    q.offer(new Point(i,j,0,1));
                 }
             }
         }
+        visited[startX][startY] = true;
+        q.offer(new Point(startX, startY, 0, 0));
         bfs();
     }
     static void bfs(){
         while(!q.isEmpty()){
-            int waterSize = waterQ.size();
-            for(int i=0; i<waterSize; i++){
-                Point water = waterQ.poll();
-                for(int j=0; j<4; j++){
-                    int nextX = water.x + dx[j];
-                    int nextY = water.y + dy[j];
-
-                    if(rangeCheck(nextX,nextY) && !waterVisited[nextX][nextY] && map[nextX][nextY]!='D' && map[nextX][nextY]!='X'){
+            Point now = q.poll();
+            if(now.flag == 1){
+                for(int i=0; i<4; i++){
+                    int nextX = now.x + dx[i];
+                    int nextY = now.y + dy[i];
+                    if(rangeCheck(nextX,nextY) && map[nextX][nextY] != 'D' && map[nextX][nextY] != 'X' && map[nextX][nextY]!='*'){
                         map[nextX][nextY] = '*';
-                        waterVisited[nextX][nextY] = true;
-                        waterQ.offer(new Point(nextX, nextY, 0));
+                        q.offer(new Point(nextX,nextY,0,1));
                     }
                 }
             }
-            int size = q.size();
-            for(int i=0; i<size; i++){
-                Point now = q.poll();
-                for(int j=0; j<4; j++){
-                    int nextX = now.x + dx[j];
-                    int nextY = now.y + dy[j];
-                    if(rangeCheck(nextX,nextY)&&!visited[nextX][nextY]&& map[nextX][nextY]!='X' && map[nextX][nextY]!='*'){
+            else{
+                for(int i=0; i<4; i++){
+                    int nextX = now.x + dx[i];
+                    int nextY = now.y + dy[i];
+                    if(rangeCheck(nextX, nextY) && !visited[nextX][nextY] && map[nextX][nextY] !='*' && map[nextX][nextY] !='X'){
                         if(map[nextX][nextY] == 'D'){
                             System.out.println(now.time+1);
                             System.exit(0);
                         }
-                        else{
-                            visited[nextX][nextY] = true;
-                            q.offer(new Point(nextX,nextY,now.time+1));
-                            map[nextX][nextY] = 'S';
-                        }
+                        visited[nextX][nextY] = true;
+                        q.offer(new Point(nextX, nextY, now.time+1, 0));
                     }
                 }
             }
         }
         System.out.println("KAKTUS");
     }
-
     static boolean rangeCheck(int x, int y){
         if(x>=0 && y>=0 && x<n && y<m){
             return true;
